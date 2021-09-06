@@ -45,3 +45,7 @@
   - name: Remove dependencies that are no longer required
     apt:
       autoremove: yes
+  - name: Install Python3
+    apt:
+      name: python3
+      state: latest
