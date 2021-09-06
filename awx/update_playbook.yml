@@ -35,3 +35,13 @@
     ansible.builtin.package:
       name: ntpdate
       state: present
+  - name: Update all packages to their latest version
+    apt:
+      name: "*"
+      state: latest
+  - name: Remove useless packages from the cache
+    apt:
+      autoclean: yes
+  - name: Remove dependencies that are no longer required
+    apt:
+      autoremove: yes
