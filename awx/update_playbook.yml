@@ -26,3 +26,10 @@
     ansible.builtin.service:
       name: postgresql
       state: started
+      
+- name: validate installed packages
+  tasks:
+  - name: Install ntpdate
+    ansible.builtin.package:
+      name: ntpdate
+      state: present
