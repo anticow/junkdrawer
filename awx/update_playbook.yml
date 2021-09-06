@@ -29,6 +29,7 @@
 
 - name: validate installed packages
   hosts: all
+  remote_user: grife
   tasks:
   - name: Install ntpdate
     ansible.builtin.package:
