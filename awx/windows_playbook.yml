@@ -1,5 +1,6 @@
 ---
 - name: windows junk
+  hosts: all
   tasks:
    - name: Install git
      win_chocolatey:
