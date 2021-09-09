@@ -1,0 +1,16 @@
+all:
+  linux:
+    hosts:
+      juggler.cowgomu.net:
+      catbox.cowgomu.net:
+      visualizer.cowgomu.net:
+      hass.cowgomu.net:
+  windows:
+    hosts:
+      dc1.cowgomu.net:
+      dc2.cowgomu.net:
+      adfs1.cowgomu.net:
+      adfs3.cowgomu.net:
+      srv.cowgomu.net:
+      hypno-toad.cowgomu.net:
+      
