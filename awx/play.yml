@@ -30,13 +30,6 @@
       shell: |
         eval $(minikube docker-env)
       when: not image_hash.stdout
-# Create Kubernetes resources to run Hello Go.
-    - name: Create a Deployment for Hello Go.
-      k8s:
-        state: present
-        definition:
-          apiVersion: apps/v1
-          kind: Deployment
           
 # Create Kubernetes Service (DNS required)
     - name: Create a Service for Hello Go.
