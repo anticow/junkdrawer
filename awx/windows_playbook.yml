@@ -2,7 +2,7 @@
 - name: windows junk
   hosts: all
   tasks:
-    - name: Install git
+    - name: Installgit
       chocolatey.chocolatey.win_chocolatey:
         name: git
         state: present
