@@ -1,0 +1,6 @@
+---
+collections:
+  - name: community.kubernetes
+    version: latest
+  - name: chocolatey.chocolatey
+    version: latest
