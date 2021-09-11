@@ -2,14 +2,6 @@
 - name: windows junk
   hosts: all
   tasks:
-    - name: Installgit
-      chocolatey.chocolatey.win_chocolatey:
-        name: git
-        state: present
-    - name: Upgrade installed packages
-      chocolatey.chocolatey.win_chocolatey:
-        name: all
-        state: latest
     - name: Install multiple packages sequentially
       chocolatey.chocolatey.win_chocolatey:
         name: '{{ item }}'
@@ -20,6 +12,12 @@
       - windirstat
       - prometheus-windows-exporter
       - 7zip
+      - git
+    - name: Upgrade installed packages
+      chocolatey.chocolatey.win_chocolatey:
+        name: all
+        state: latest
+
     - name: Install all critical and security updates
       win_updates:
         category_names:
