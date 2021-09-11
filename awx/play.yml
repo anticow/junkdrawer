@@ -76,7 +76,7 @@
               targetPort: 8180
             selector:
               app: hello-go
-post_tasks:
+- post_tasks:
     #Example export using minikube services
     - name: Expose Hello Go on the host via Minikube.
       command: minikube service hello-go --url=true
@@ -84,11 +84,11 @@ post_tasks:
       register: minikube_service
     - debug:
         msg: "Hello Go URL: {{ minikube_service['stdout_lines'][0] }}"
-- name: Verify Hello Go is responding.
+  - name: Verify Hello Go is responding.
       uri:
         url: "{{ minikube_service['stdout_lines'][0] }}/test"
         return_content: true
       register: hello_go_response
       failed_when: "'/test' not in hello_go_response.content"
-- debug:
+  - debug:
         msg: "Testing URL Hello GO Requested: {{hello_go_response.content}} Status: {{hello_go_response.status}}"
