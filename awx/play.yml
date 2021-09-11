@@ -40,25 +40,7 @@
         definition:
           apiVersion: apps/v1
           kind: Deployment
-          metadata:
-            name: hello-go
-            namespace: default
-          spec:
-            replicas: "{{ replicas }}"
-            selector:
-              matchLabels:
-                app: hello-go
-            template:
-              metadata:
-                labels:
-                  app: hello-go
-              spec:
-                containers:
-                - name: hello-go
-                  image: "{{ image_name }}:{{ image_tag }}"
-                  imagePullPolicy: IfNotPresent
-                  ports:
-                  - containerPort: 8180
+          
 # Create Kubernetes Service (DNS required)
     - name: Create a Service for Hello Go.
       k8s:
@@ -74,21 +56,9 @@
             ports:
             - port: 8180
               targetPort: 8180
-            selector:
-              app: hello-go
 - post_tasks:
     #Example export using minikube services
   - name: Expose Hello Go on the host via Minikube.
     command: minikube service hello-go --url=true
     changed_when: false
     register: minikube_service
-  - debug:
-      msg: "Hello Go URL: {{ minikube_service['stdout_lines'][0] }}"
-  - name: Verify Hello Go is responding.
-    uri:
-      url: "{{ minikube_service['stdout_lines'][0] }}/test"
-      return_content: true
-    register: hello_go_response
-    failed_when: "'/test' not in hello_go_response.content"
-  - debug:
-      msg: "Testing URL Hello GO Requested: {{hello_go_response.content}} Status: {{hello_go_response.status}}"
