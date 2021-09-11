@@ -5,7 +5,6 @@
 #Variables
   vars:
     ansible_python_interpreter: '{{ ansible_playbook_python }}'
-    image_name: hello-go
     image_tag: latest
     replicas: 4
 # Pre-Tasks to validate if Minikube is running
@@ -24,14 +23,12 @@
     - name: Get existing image hash.
       shell: |
         eval $(minikube docker-env)
-        docker images -q {{ image_name }}
       register: image_hash
       changed_when: false
 # Otherwise will create an image from Dockerfile location
     - name: Build image if it's not already built.
       shell: |
         eval $(minikube docker-env)
-        docker build -t {{ image_name }} ../GoProject 
       when: not image_hash.stdout
 # Create Kubernetes resources to run Hello Go.
     - name: Create a Deployment for Hello Go.
