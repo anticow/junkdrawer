@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: Install multiple packages sequentially
-      chocolatey.chocolatey.win_chocolatey:
+      win_chocolatey:
         name: '{{ item }}'
         state: present
         loop:
@@ -14,7 +14,7 @@
         - 7zip
         - git
     - name: Upgrade installed packages
-      chocolatey.chocolatey.win_chocolatey:
+      win_chocolatey:
         name: all
         state: latest
 
