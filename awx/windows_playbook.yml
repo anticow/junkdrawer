@@ -6,7 +6,6 @@
       win_chocolatey:
         name: '{{ item }}'
         state: present
-        force: yes
         pinned: yes
       loop_control:
         pause: 20
