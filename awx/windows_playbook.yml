@@ -6,13 +6,15 @@
       win_chocolatey:
         name: '{{ item }}'
         state: present
-        loop:
-        - procexp
-        - putty
-        - windirstat
-        - prometheus-windows-exporter
-        - 7zip
-        - git
+        force: yes
+        pinned: yes
+      with_items:
+      - procexp
+      - putty
+      - windirstat
+      - prometheus-windows-exporter
+      - 7zip
+      - git
     - name: Upgrade installed packages
       win_chocolatey:
         name: all
