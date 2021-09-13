@@ -8,7 +8,8 @@
         state: present
         force: yes
         pinned: yes
-      wait_for: timeout=20
+      loop_control:
+        pause: 20
       with_items:
       - procexp
       - putty
