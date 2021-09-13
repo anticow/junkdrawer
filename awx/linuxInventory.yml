@@ -1,0 +1,7 @@
+---
+linux:
+  hosts:
+    juggler.cowgomu.net:
+    catbox.cowgomu.net:
+    visualizer.cowgomu.net:
+    hass.cowgomu.net:
