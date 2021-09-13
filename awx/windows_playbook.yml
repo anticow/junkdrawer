@@ -14,7 +14,7 @@
       - procexp
       - putty
       - windirstat
-      - prometheus-windows-exporter
+      - prometheus-windows-exporter.install
       - 7zip
       - git
     - name: Upgrade installed packages
