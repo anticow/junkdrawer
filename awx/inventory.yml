@@ -13,7 +13,6 @@ windom:
   hosts:
     dc1.cowgomu.net:
     dc2.cowgomu.net:
-    adfs1.cowgomu.net:
     adfs3.cowgomu.net:
     duncan.cowgomu.net:
     sidobits.cowgomu.net:
