@@ -1,11 +1,7 @@
 ---
 - name : update ansible host
   hosts: ansible
-  tasks: 
-    -name: update ansible
-      name: ansible.windows
-      state: latest
-      
+
 - name: Update web servers
   hosts: webservers
   remote_user: grife
