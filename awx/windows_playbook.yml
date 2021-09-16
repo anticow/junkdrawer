@@ -31,3 +31,18 @@
     - name: Reboot host if required
       win_reboot:
       when: update_result.reboot_required
+    - name: Set service startup mode to auto and ensure it is started
+      ansible.windows.win_service:
+        name: windows_exporter
+        start_mode: auto
+        state: started
+
+    - name: Pause a service
+      ansible.windows.win_service:
+        name: Netlogon
+        state: started
+
+    - name: Ensure that WinRM is started when the system has settled
+      ansible.windows.win_service:
+        name: WinRM
+        start_mode: delayed
