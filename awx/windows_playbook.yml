@@ -34,8 +34,8 @@
     - name: Set service startup mode to auto and ensure it is started
       ansible.windows.win_service:
         name: windows_exporter
-        start_mode: auto
-        state: delayed
+        start_mode: delayed
+        state: started
 
     - name: Ensure that WinRM is started when the system has settled
       ansible.windows.win_service:

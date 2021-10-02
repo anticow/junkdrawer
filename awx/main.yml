@@ -1,0 +1,54 @@
+---
+# Setting host
+- name: playbook1 
+  hosts: localhost
+#Variables
+  vars:
+    ansible_python_interpreter: '{{ ansible_playbook_python }}'
+    image_tag: latest
+    replicas: 4
+# Pre-Tasks to validate if Minikube is running
+  pre_tasks:
+    - name: Check Minikube's status.
+      command: minikube status
+      register: minikube_status
+      changed_when: false
+      ignore_errors: true
+    # Otherwise will start minikube
+    - name: Start Minikube if it's not running.
+      command: minikube start
+      when: "not minikube_status.stdout or 'Running' not in minikube_status.stdout"
+# Check existing images
+  tasks:
+    - name: Get existing image hash.
+      shell: |
+        eval $(minikube docker-env)
+      register: image_hash
+      changed_when: false
+# Otherwise will create an image from Dockerfile location
+    - name: Build image if it's not already built.
+      shell: |
+        eval $(minikube docker-env)
+      when: not image_hash.stdout
+          
+# Create Kubernetes Service (DNS required)
+    - name: Create a Service for Hello Go.
+      k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Service
+          metadata:
+            name: ansible-cowgo
+            namespace: default
+          spec:
+            type: LoadBalancer
+            ports:
+            - port: 8180
+              targetPort: 8180
+#- post_tasks:
+#    #Example export using minikube services
+#  - name: Expose Hello Go on the host via Minikube.
+#    command: minikube service hello-go --url=true
+#    changed_when: false
+#    register: minikube_service
