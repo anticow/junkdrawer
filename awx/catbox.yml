@@ -1,6 +1,5 @@
 ---
 - name: Run container
-  hosts: catbox.cowgomu.net
   docker_compose:
     project_src: /opt/compose
     files:
