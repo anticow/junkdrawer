@@ -1,0 +1,5 @@
+- name: Run container
+  hosts: catbox.cowgomu.net
+  become: True
+  shell:
+    cmd: "docker-compose -f /opt/compose/compose.yml up -d"
