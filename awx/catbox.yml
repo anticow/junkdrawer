@@ -1,3 +1,4 @@
+---
 - name: Run container
   hosts: catbox.cowgomu.net
   docker_compose:
