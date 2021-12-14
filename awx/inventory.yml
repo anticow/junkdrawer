@@ -16,6 +16,7 @@ windom:
     adfs3.cowgomu.net:
     duncan.cowgomu.net:
     sidobits.cowgomu.net:
+    sql.cowgomu.net:
 windows:
   children:
     winnondom:
