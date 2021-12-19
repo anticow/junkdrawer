@@ -4,7 +4,6 @@ linux:
     juggler.cowgomu.net:
     catbox.cowgomu.net:
     visualizer.cowgomu.net:
-    hass.cowgomu.net:
 winnondom:
   hosts:
     srv.cowgomu.net:
@@ -17,6 +16,7 @@ windom:
     duncan.cowgomu.net:
     sidobits.cowgomu.net:
     sql.cowgomu.net:
+    ophelia.cowgomu.net:
 windows:
   children:
     winnondom:
