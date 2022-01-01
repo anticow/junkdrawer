@@ -21,7 +21,7 @@
       - chrome
       - 1password
       - 1password-cli
-      
+      - googlechrome
     - name: Upgrade installed packages
       win_chocolatey:
         name: all

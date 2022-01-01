@@ -16,6 +16,7 @@
       - prometheus-windows-exporter.install
       - 7zip
       - git
+      - googlechrome
     - name: Upgrade installed packages
       win_chocolatey:
         name: all
