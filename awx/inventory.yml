@@ -17,6 +17,7 @@ windom:
     sidobits.cowgomu.net:
     sql.cowgomu.net:
     ophelia.cowgomu.net:
+    hbox-w.cowgomu.net:
 windows:
   children:
     winnondom:
