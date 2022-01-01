@@ -1,0 +1,49 @@
+---
+- name: windows domain join junk
+  hosts: all
+  tasks:
+    - name: Install multiple packages sequentially
+      win_chocolatey:
+        name: '{{ item }}'
+        state: present
+        pinned: yes
+      loop_control:
+        pause: 20
+      with_items:
+      - procexp
+      - putty
+      - windirstat
+      - prometheus-windows-exporter.install
+      - 7zip
+      - git
+      - office365homepremium
+      - discord
+      - chrome
+      - 1password
+      - 1password-cli
+      
+    - name: Upgrade installed packages
+      win_chocolatey:
+        name: all
+        state: latest
+
+    - name: Install all critical and security updates
+      win_updates:
+        category_names:
+        - CriticalUpdates
+        - SecurityUpdates
+        state: installed
+      register: update_result
+    - name: Reboot host if required
+      win_reboot:
+      when: update_result.reboot_required
+    - name: Set service startup mode to auto and ensure it is started
+      ansible.windows.win_service:
+        name: windows_exporter
+        start_mode: delayed
+        state: started
+
+    - name: Ensure that WinRM is started when the system has settled
+      ansible.windows.win_service:
+        name: WinRM
+        start_mode: delayed
