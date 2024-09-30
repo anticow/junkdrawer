@@ -33,6 +33,8 @@
 - name: validate installed packages
   hosts: all
   remote_user: grife
+  become: true
+  become_method: sudo
   tasks:
   - name: Install ntpdate
     ansible.builtin.package:
