@@ -4,3 +4,5 @@ collections:
     version: latest
   - name: chocolatey.chocolatey
     version: latest
+  - name: community.general
+  - name: community.docker
