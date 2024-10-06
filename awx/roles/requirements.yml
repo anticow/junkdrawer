@@ -7,4 +7,6 @@ collections:
   - name: andrewrothstein.docker-compose
     version: latest
   - name: community.general
+    version: latest
   - name: community.docker
+    version: latest
