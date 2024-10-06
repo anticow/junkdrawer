@@ -10,3 +10,8 @@ collections:
     version: latest
   - name: community.docker
     version: latest
+  - name: geerlingguy.ansible
+  - name: geerlingguy.docker
+  - name: geerlingguy.awx
+  - name: geerlingguy.git
+  - name: geerlingguy.pip
