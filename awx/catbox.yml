@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
     - name: restart container
-      community.docker.docker_compose_v2:
+      docker_compose:
         project_src: /opt/compose
         files:
         - compose.yml
