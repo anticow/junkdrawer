@@ -4,6 +4,8 @@ collections:
     version: latest
   - name: chocolatey.chocolatey
     version: latest
+  - name: andrewrothstein.docker-compose
+    version: latest
   - name: community.general
     version: latest
   - name: community.docker
