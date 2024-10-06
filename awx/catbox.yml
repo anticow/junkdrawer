@@ -1,7 +1,11 @@
 ---
 - name: Run container
-  community.docker.docker_compose_v2:
-    project_src: /opt/compose
-    files:
-    - compose.yml
-    state: restarted
+  hosts: catbox
+  gather_facts: no
+  tasks:
+    - name: restart container
+      community.docker.docker_compose_v2:
+        project_src: /opt/compose
+        files:
+        - compose.yml
+        state: restarted
