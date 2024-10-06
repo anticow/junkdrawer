@@ -3,4 +3,4 @@
   hosts: localhost
   tasks:
     - name: Restart Docker Compose
-      command: sudo docker compose -f /opt/compose/compose.yml restart
+      command: docker compose -f /opt/compose/compose.yml restart
