@@ -1,16 +1,4 @@
 ---
-collections:
-  - name: community.kubernetes
-    version: latest
-  - name: chocolatey.chocolatey
-    version: latest
-  - name: andrewrothstein.docker-compose
-    version: latest
-  - name: community.general
-    version: latest
-  - name: community.docker
-    version: latest
-
 roles:
   - name: geerlingguy.ansible
   - name: geerlingguy.docker
