@@ -1,6 +1,7 @@
 ---
 - name: Run container
-  hosts: localhost
-  tasks:
-    - name: Restart Docker Compose
-      command: /usr/bin/docker compose -f /opt/compose/compose.yml restart
+  docker_compose:
+    project_src: /opt/compose
+    files:
+    - compose.yml
+    state: restarted
